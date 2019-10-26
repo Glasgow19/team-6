@@ -13,6 +13,12 @@ import java.io.Serializable;
 public class QuizResultId implements Serializable
 {
 
+    public QuizResultId(int quiz_id, int user_id, String time){
+        this.quiz_id=quiz_id;
+        this.user_id=user_id;
+        this.time=time;
+    }
+
     @NonNull
     public int quiz_id;
 

@@ -27,8 +27,18 @@ public class CfgApplication {
 	@Autowired
 	private QuizResultRepo quizResultService;
 
+
+	@PostMapping("/addNewUserAndSurveyData")
+	public String addNewUserAndSurveyData(@RequestBody ResponseFormat responseFormat) {
+
+		Users user = new Users(responseFormat.user_id, responseFormat.age, responseFormat.gender, responseFormat.lat, responseFormat.lng, responseFormat.user_result);
+		QuizResultId quizResultId = new QuizResultId(responseFormat.quiz_id, responseFormat.user_id, responseFormat.time);
+		QuizResults quizResults = new QuizResults(quizResultId, responseFormat.user_result);
+		userService.addUser(user);
+		return "success";
+	}
+
 	@PostMapping("/addNewUser")
-	@RequestMapping("/user/addNewUser")
 	public String addNewUser(@RequestBody Users user) {
 
 		userService.addUser(user);

@@ -21,10 +21,10 @@ public class Users {
     private Integer age;
     @Column(name = "gender")
     private String gender;
-    @Column(name = "location")
-    private String location;
-    @Column(name = "city")
-    private String city;
+    @Column(name = "lat")
+    private long lat;
+    @Column(name = "lng")
+    private long lng;
     @Column(name = "user_result")
     private Integer user_result;
 
@@ -32,12 +32,12 @@ public class Users {
 
 
 
-    public Users(int id, int age, String gender, String location, String city, int motivation, Integer user_result) {
+    public Users(int id, int age, String gender, long lat, long lng, Integer user_result) {
         this.id=id;
         this.age=age;
         this.gender=gender;
-        this.location=location;
-        this.city=city;
+        this.lat=lat;
+        this.lng=lng;
         this.user_result=user_result;
 
 
@@ -54,9 +54,10 @@ public class Users {
         userObject.appendField("age", this.age);
         userObject.appendField("id", this.id);
         userObject.appendField("gender", this.gender);
-        userObject.appendField("location", this.location);
-        userObject.appendField("city", this.city);
+        userObject.appendField("lat", this.lat);
+        userObject.appendField("lng", this.lng);
         userObject.appendField("user_result", this.user_result);
+
         object.appendField("userObject", userObject);
 
         return object;

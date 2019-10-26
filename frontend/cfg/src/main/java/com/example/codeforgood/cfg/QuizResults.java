@@ -28,7 +28,7 @@ public class QuizResults {
 
     public QuizResults(QuizResultId quizResultId, int user_result) {
         this.quizResultId=quizResultId;
-     this.user_result=user_result;
+        this.user_result=user_result;
 
 
     }

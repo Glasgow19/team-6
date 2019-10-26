@@ -41,7 +41,7 @@ public class CfgApplication {
 	}
 
 	@RequestMapping("/getAllMetricsFromAUser")
-	public String getAllMetrics() {
+	public String getAllUserData() {
 
 
 		return "all metrics for user";

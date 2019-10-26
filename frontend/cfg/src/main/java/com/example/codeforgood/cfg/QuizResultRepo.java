@@ -1,4 +1,11 @@
 package com.example.codeforgood.cfg;
 
-public class QuizResultRepo {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface QuizResultRepo extends CrudRepository<QuizResultEntitiy,Integer> {
+
+
 }
+

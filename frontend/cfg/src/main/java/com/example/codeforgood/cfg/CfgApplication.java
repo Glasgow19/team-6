@@ -48,13 +48,7 @@ public class CfgApplication {
 
 	}
 
-	@RequestMapping("/user/getOverallMetricForAUser/{id}")
-	public UserEntity overallUserMetric(@PathVariable("id") int id) {
 
-
-		return userService.getOverallMetricResultById(id);
-
-	}
 
 	@RequestMapping("/user/getAllMetricsFromAUser")
 	public Iterable<UserEntity> getAllUserData() {

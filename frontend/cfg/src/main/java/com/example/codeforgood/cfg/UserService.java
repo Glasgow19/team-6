@@ -8,25 +8,21 @@ import java.util.Optional;
 public class UserService {
 
     @Autowired
-    private UserRepo userRepo;
-
+    private UserRepo userRepository;
 
     public Iterable<UserEntity> findAll() {
-       return userRepo.findAll();
+       return userRepository.findAll();
 
     }
 
     public Optional<UserEntity> findUserById(int id) {
-        return userRepo.findById(id);
+        return userRepository.findById(id);
     }
 
     public void addUser(UserEntity userEntity) {
-        userRepo.save(userEntity);
+        userRepository.save(userEntity);
     }
 
 
-    public UserEntity getOverallMetricResultById(int id) {
-        return userRepo.findResultById(id);
-    }
 }
 

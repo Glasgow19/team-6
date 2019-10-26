@@ -8,9 +8,9 @@ import java.util.Optional;
 public class UserService {
 
     @Autowired
-    private UserRepo userRepo;
+    private UserRepo userRepository;
 
-
+<<<<<<< HEAD
     public Iterable<Users> findAll() {
        return userRepo.findAll();
 
@@ -22,6 +22,19 @@ public class UserService {
 
     public void addUser(Users users) {
         userRepo.save(users);
+=======
+    public Iterable<UserEntity> findAll() {
+       return userRepository.findAll();
+
+    }
+
+    public Optional<UserEntity> findUserById(int id) {
+        return userRepository.findById(id);
+    }
+
+    public void addUser(UserEntity userEntity) {
+        userRepository.save(userEntity);
+>>>>>>> 433c2e051aa6caf0851c2f5808604a6cc8ad19b3
     }
 
 

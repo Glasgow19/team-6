@@ -47,7 +47,6 @@ public class CfgApplication {
 
 	}
 
-
 	@RequestMapping("/user/getAllMetricsFromAUser")
 	public Iterable<Users> getAllUserData() {
 

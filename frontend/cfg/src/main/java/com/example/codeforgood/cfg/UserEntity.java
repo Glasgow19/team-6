@@ -1,9 +1,13 @@
 package com.example.codeforgood.cfg;
-
 import net.minidev.json.JSONObject;
 
+import lombok.AccessLevel;
+import lombok.Setter;
+import lombok.Getter;
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "user")
 public class UserEntity {
@@ -11,13 +15,39 @@ public class UserEntity {
     @GeneratedValue
     @Column(name = "id")
     private Integer id;
-    @Column(name = "name")
-    private String name;
+    @Column(name = "age")
+    private Integer age;
+    @Column(name = "gender")
+    private String gender;
+    @Column(name = "location")
+    private String location;
+    @Column(name = "city")
+    private String city;
+    @Column(name = "motivation")
+    private Integer motivation;
+    @Column(name = "confidence")
+    private Integer confidence;
+    @Column(name = "physical_competence")
+    private Integer physical_competence;
+    @Column(name = "opportunity")
+    private Integer opportunity;
+    @Column(name = "activity")
+    private Integer activity;
 
 
-    public UserEntity(int id, String name, String description, String toxicity) {
+
+
+    public UserEntity(int id, String name, String gender, String location, String city, int motivation, int confidence, int physical_competence, int opportunity, int activity) {
         this.id=id;
-        this.name=name;
+        this.age=age;
+        this.gender=gender;
+        this.location=location;
+        this.city=city;
+        this.motivation=motivation;
+        this.confidence=confidence;
+        this.physical_competence=physical_competence;
+        this.opportunity=opportunity;
+        this.activity=activity;
 
     }
 
@@ -25,29 +55,22 @@ public class UserEntity {
     public UserEntity(){}
 
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 
     public JSONObject toJSONObject(){
         JSONObject object = new JSONObject();
-        JSONObject medicineObject = new JSONObject();
-        medicineObject.appendField("name", this.name);
-        medicineObject.appendField("id", this.id);
-        object.appendField("medicine", medicineObject);
+        JSONObject userObject = new JSONObject();
+        userObject.appendField("age", this.age);
+        userObject.appendField("id", this.id);
+        userObject.appendField("gender", this.gender);
+        userObject.appendField("location", this.location);
+        userObject.appendField("city", this.city);
+        userObject.appendField("motivation", this.motivation);
+        userObject.appendField("confidence", this.confidence);
+        userObject.appendField("physical_competence", this.physical_competence);
+        userObject.appendField("opportunity", this.opportunity);
+        userObject.appendField("activity", this.activity);
+        object.appendField("userObject", userObject);
+
         return object;
 
     }

@@ -6,9 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @SpringBootApplication
@@ -29,13 +27,12 @@ public class CfgApplication {
 	@Autowired
 	private QuizResultRepo quizResultService;
 
+	@PostMapping("/addNewUser")
 	@RequestMapping("/user/addNewUser")
-	public String addNewUser(Users users) {
+	public String addNewUser(@RequestBody Users user) {
 
-
-		userService.addUser(users);
-		return "added user";
-
+		userService.addUser(user);
+      return "success";
 	}
 
 	@RequestMapping("/resultService/updateMetrics")
@@ -46,6 +43,7 @@ public class CfgApplication {
 		return "updated user metrics";
 
 	}
+
 
 	@RequestMapping("/user/getAllMetricsFromAUser")
 	public Iterable<Users> getAllUserData() {

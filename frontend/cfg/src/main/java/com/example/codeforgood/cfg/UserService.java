@@ -1,6 +1,4 @@
 package com.example.codeforgood.cfg;
-import com.example.codeforgood.cfg.UserEntity;
-import com.example.codeforgood.cfg.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +25,8 @@ public class UserService {
     }
 
 
+    public UserEntity getOverallMetricResultById(int id) {
+        return userRepo.findResultById(id);
+    }
 }
 

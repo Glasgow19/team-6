@@ -1,12 +1,13 @@
 package com.example.codeforgood.cfg;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,35 +23,43 @@ public class CfgApplication {
 		SpringApplication.run(CfgApplication.class, args);
 	}
 
-	@RequestMapping("/addNewUser")
-	public String addNewUser() {
+	@Autowired
+	private UserService userService;
+	@Autowired
+	private QuizService quizService;
+	@Autowired
+	private QuizResultRepo quizResultService;
+
+	@RequestMapping("/user/addNewUser")
+	public String addNewUser(UserEntity userEntity) {
 
 
-		return "add new user";
+		userService.addUser(userEntity);
+		return "added user";
 
 	}
 
-	@RequestMapping("/updateMetrics")
+	@RequestMapping("/resultService/updateMetrics")
 	public String updateMetrics() {
 
 
-		return "update metrics";
+	//update the  user entry with new metrics
+		return "updated user metrics";
 
 	}
 
-	@RequestMapping("/getOverallMetricForAUser")
-	public String overallMetrics() {
+	@RequestMapping("/user/getOverallMetricForAUser/{id}")
+	public UserEntity overallUserMetric(@PathVariable("id") int id) {
 
 
-		return "overall metric";
+		return userService.getOverallMetricResultById(id);
 
 	}
 
-	@RequestMapping("/getAllMetricsFromAUser")
-	public String getAllUserData() {
+	@RequestMapping("/user/getAllMetricsFromAUser")
+	public Iterable<UserEntity> getAllUserData() {
 
-
-		return "all metrics for user";
+		return userService.findAll();
 
 	}
 

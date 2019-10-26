@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface UserRepo extends CrudRepository<UserEntity,Integer> {
 
 
+    UserEntity findResultById(int id);
 }

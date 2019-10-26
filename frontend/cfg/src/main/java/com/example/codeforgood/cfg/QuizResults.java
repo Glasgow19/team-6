@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "quiz_results")
-public class QuizResultEntitiy {
+public class QuizResults {
 
     @Id
     @EmbeddedId
@@ -26,9 +26,7 @@ public class QuizResultEntitiy {
 
 
 
-
-
-    public QuizResultEntitiy(QuizResultId quizResultId, int user_result) {
+    public QuizResults(QuizResultId quizResultId, int user_result) {
         this.quizResultId=quizResultId;
      this.user_result=user_result;
 
@@ -36,7 +34,7 @@ public class QuizResultEntitiy {
     }
 
 
-    public QuizResultEntitiy(){}
+    public QuizResults(){}
 
 
 

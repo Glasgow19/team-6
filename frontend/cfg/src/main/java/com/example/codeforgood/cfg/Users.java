@@ -4,13 +4,15 @@ import net.minidev.json.JSONObject;
 import lombok.AccessLevel;
 import lombok.Setter;
 import lombok.Getter;
+import org.springframework.context.annotation.Primary;
+
 import javax.persistence.*;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "users")
-public class UserEntity {
+public class Users {
     @Id
     @GeneratedValue
     @Column(name = "id")
@@ -23,26 +25,26 @@ public class UserEntity {
     private String location;
     @Column(name = "city")
     private String city;
-    @Column(name = "result")
-    private Integer result;
+    @Column(name = "user_result")
+    private Integer user_result;
 
 
 
 
 
-    public UserEntity(int id, String name, String gender, String location, String city, int motivation, Integer result) {
+    public Users(int id, int age, String gender, String location, String city, int motivation, Integer user_result) {
         this.id=id;
         this.age=age;
         this.gender=gender;
         this.location=location;
         this.city=city;
-        this.result=result;
+        this.user_result=user_result;
 
 
     }
 
 
-    public UserEntity(){}
+    public Users(){}
 
 
 
@@ -54,7 +56,7 @@ public class UserEntity {
         userObject.appendField("gender", this.gender);
         userObject.appendField("location", this.location);
         userObject.appendField("city", this.city);
-        userObject.appendField("user_result", this.result);
+        userObject.appendField("user_result", this.user_result);
         object.appendField("userObject", userObject);
 
         return object;

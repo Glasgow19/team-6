@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface QuizResultRepo extends CrudRepository<QuizResultEntitiy,Integer> {
+public interface QuizResultRepo extends CrudRepository<QuizResults,Integer> {
 
 
 }

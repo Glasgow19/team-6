@@ -1,6 +1,4 @@
 package com.example.codeforgood.cfg;
-import com.example.codeforgood.cfg.QuizEntity;
-import com.example.codeforgood.cfg.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,17 +11,17 @@ public class QuizService {
     private QuizRepo quizRepository;
 
 
-    public Iterable<QuizEntity> findAll() {
+    public Iterable<Quizes> findAll() {
         return quizRepository.findAll();
 
     }
 
-    public Optional<QuizEntity> findQuizById(int id) {
+    public Optional<Quizes> findQuizById(int id) {
         return quizRepository.findById(id);
     }
 
-    public void addQuizEntity(QuizEntity quizEntity) {
-        quizRepository.save(quizEntity);
+    public void addQuizEntity(Quizes quizes) {
+        quizRepository.save(quizes);
     }
 
 

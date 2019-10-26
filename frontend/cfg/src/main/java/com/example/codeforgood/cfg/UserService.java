@@ -11,22 +11,19 @@ public class UserService {
     private UserRepo userRepo;
 
 
-    public Iterable<UserEntity> findAll() {
+    public Iterable<Users> findAll() {
        return userRepo.findAll();
 
     }
 
-    public Optional<UserEntity> findUserById(int id) {
+    public Optional<Users> findUserById(int id) {
         return userRepo.findById(id);
     }
 
-    public void addUser(UserEntity userEntity) {
-        userRepo.save(userEntity);
+    public void addUser(Users users) {
+        userRepo.save(users);
     }
 
 
-    public UserEntity getOverallMetricResultById(int id) {
-        return userRepo.findResultById(id);
-    }
 }
 

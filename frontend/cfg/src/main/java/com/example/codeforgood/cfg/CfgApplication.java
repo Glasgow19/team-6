@@ -7,7 +7,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,10 +30,10 @@ public class CfgApplication {
 	private QuizResultRepo quizResultService;
 
 	@RequestMapping("/user/addNewUser")
-	public String addNewUser(UserEntity userEntity) {
+	public String addNewUser(Users users) {
 
 
-		userService.addUser(userEntity);
+		userService.addUser(users);
 		return "added user";
 
 	}
@@ -48,16 +47,9 @@ public class CfgApplication {
 
 	}
 
-	@RequestMapping("/user/getOverallMetricForAUser/{id}")
-	public UserEntity overallUserMetric(@PathVariable("id") int id) {
-
-
-		return userService.getOverallMetricResultById(id);
-
-	}
 
 	@RequestMapping("/user/getAllMetricsFromAUser")
-	public Iterable<UserEntity> getAllUserData() {
+	public Iterable<Users> getAllUserData() {
 
 		return userService.findAll();
 

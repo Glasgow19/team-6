@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "quizes")
-public class QuizEntity {
+public class Quizes {
     @Id
     @GeneratedValue
     @Column(name = "id")
@@ -20,13 +20,13 @@ public class QuizEntity {
 
 
 
-    public QuizEntity(int id, int user_id) {
+    public Quizes(int id, int user_id) {
         this.id=id;
         this.user_id=user_id;
     }
 
 
-    public QuizEntity(){}
+    public Quizes(){}
 
 
 

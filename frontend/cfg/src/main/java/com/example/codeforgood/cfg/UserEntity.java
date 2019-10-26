@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class UserEntity {
     @Id
     @GeneratedValue
@@ -23,31 +23,21 @@ public class UserEntity {
     private String location;
     @Column(name = "city")
     private String city;
-    @Column(name = "motivation")
-    private Integer motivation;
-    @Column(name = "confidence")
-    private Integer confidence;
-    @Column(name = "physical_competence")
-    private Integer physical_competence;
-    @Column(name = "opportunity")
-    private Integer opportunity;
-    @Column(name = "activity")
-    private Integer activity;
+    @Column(name = "user_result")
+    private Integer user_result;
 
 
 
 
-    public UserEntity(int id, String name, String gender, String location, String city, int motivation, int confidence, int physical_competence, int opportunity, int activity) {
+
+    public UserEntity(int id, String name, String gender, String location, String city, int motivation, Integer user_result) {
         this.id=id;
         this.age=age;
         this.gender=gender;
         this.location=location;
         this.city=city;
-        this.motivation=motivation;
-        this.confidence=confidence;
-        this.physical_competence=physical_competence;
-        this.opportunity=opportunity;
-        this.activity=activity;
+        this.user_result=user_result;
+
 
     }
 
@@ -64,11 +54,7 @@ public class UserEntity {
         userObject.appendField("gender", this.gender);
         userObject.appendField("location", this.location);
         userObject.appendField("city", this.city);
-        userObject.appendField("motivation", this.motivation);
-        userObject.appendField("confidence", this.confidence);
-        userObject.appendField("physical_competence", this.physical_competence);
-        userObject.appendField("opportunity", this.opportunity);
-        userObject.appendField("activity", this.activity);
+        userObject.appendField("user_result", this.user_result);
         object.appendField("userObject", userObject);
 
         return object;

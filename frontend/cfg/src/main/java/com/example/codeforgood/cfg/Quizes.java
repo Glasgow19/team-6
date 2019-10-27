@@ -12,7 +12,6 @@ import javax.persistence.*;
 @Table(name = "quizes")
 public class Quizes {
     @Id
-    @GeneratedValue
     @Column(name = "id")
     private Integer id;
     @Column(name = "user_id") //need to put the reference in here

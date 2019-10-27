@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = {"*"})
 public class CfgApplication {
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(CfgApplication.class, args);
 	}
-
+	int user_id=1;
+	int quiz_id=1;
 	@Autowired
 	private UserService userService;
 	@Autowired
@@ -31,13 +33,23 @@ public class CfgApplication {
 	@PostMapping("/addNewUserAndSurveyData")
 	public String addNewUserAndSurveyData(@RequestBody ResponseFormat responseFormat) {
 
-		Users user = new Users(responseFormat.user_id, responseFormat.age, responseFormat.gender, responseFormat.lat, responseFormat.lng, responseFormat.user_result);
-		QuizResultId quizResultId = new QuizResultId(responseFormat.quiz_id, responseFormat.user_id, responseFormat.time);
-		QuizResults quizResults = new QuizResults(quizResultId, responseFormat.user_result);
+		try {
+			Users user = new Users(user_id, responseFormat.age, responseFormat.gender, responseFormat.lat, responseFormat.lng, responseFormat.user_result);
+			Quizes quiz = new Quizes(quiz_id, user_id);
+			QuizResultId quizResultId = new QuizResultId(quiz_id, user_id, responseFormat.time);
+			QuizResults quizResults = new QuizResults(quizResultId, responseFormat.user_result);
 
-		userService.addUser(user);
-		quizResultService.save(quizResults);
+
+			userService.addUser(user);
+			quizService.addQuizEntity(quiz);
+			quizResultService.save(quizResults);
+		}catch(Exception e){
+
+
+		}
+		System.out.println(responseFormat.user_id + " " + responseFormat.quiz_id);
 		System.out.println("done");
+		user_id++;
 		return "success";
 
 	}

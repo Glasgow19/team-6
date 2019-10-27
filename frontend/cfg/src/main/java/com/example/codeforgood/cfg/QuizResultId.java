@@ -19,14 +19,14 @@ public class QuizResultId implements Serializable
         this.time=time;
     }
 
-    @NonNull
+//    @NonNull
     public int quiz_id;
 
 
-    @NonNull
+//    @NonNull
     public int user_id;
 
 
-    @NonNull
+//    @NonNull
     public String time;
 }

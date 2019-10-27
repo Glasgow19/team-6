@@ -4,7 +4,7 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@RequiredArgsConstructor
+
 @NoArgsConstructor
 @Getter
 @Setter

@@ -29,13 +29,11 @@ def user_entries_generator():
     for i in range(NUMBER_OF_ENTRIES):
         age = random.randint(0,99)
         gender = random.choice(["male","female","other"])
-        lat = x, y = uniform(-180,180), uniform(-90, 90)
-        long = x, y = uniform(-180,180), uniform(-90, 90)
         activity = random.randint(0,10)
         SQL_STMT = ("INSERT INTO users (age, gender, lat, lng, user_result)"
                     " VALUES (%s, %s, %s, %s, %s)"
                     )
-        data = (age, gender, lat, long, activity)
+        data = (age, gender, -19, 73, activity)
         cursor.execute(SQL_STMT, data)
         mariadb_connection.commit()
 

@@ -34,12 +34,15 @@ public class CfgApplication {
 		Users user = new Users(responseFormat.user_id, responseFormat.age, responseFormat.gender, responseFormat.lat, responseFormat.lng, responseFormat.user_result);
 		QuizResultId quizResultId = new QuizResultId(responseFormat.quiz_id, responseFormat.user_id, responseFormat.time);
 		QuizResults quizResults = new QuizResults(quizResultId, responseFormat.user_result);
+
 		userService.addUser(user);
+		quizResultService.save(quizResults);
 		return "success";
 	}
 
 	@PostMapping("/addNewUser")
 	public String addNewUser(@RequestBody Users user) {
+
 
 		userService.addUser(user);
       return "success";

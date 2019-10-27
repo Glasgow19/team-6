@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.formContainer {
+    height: 50vh !important;
+    width: 50vw !important;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.formStyle {
+    margin: 2em !important;
+}
+
+.questionTitle {
+    font-size: 3rem !important;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.responseButton {
+    margin: 0.5em !important; 
+    padding-left: 5em !important;
+    padding-right: 5em !important;
+}

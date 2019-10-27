@@ -15,7 +15,9 @@ const QUESTION_LIMIT = 10;
 
 let questionNumber = 1; 
 let metric = 0; 
-let driven = false; 
+let driven = false;
+let user_id = 1;
+let quiz_id = 1;
 
 const Quiz = () => {
     const { latitude, longitude, timestamp, accuracy, error } = usePosition();
@@ -26,17 +28,23 @@ const Quiz = () => {
     const handleSubmit = event => {
         const form = event.target;
 
-        axios.post('localhost:8080/addNewUserAndSurveyData', {
+        let data ={
             age: form.elements.age.value,
             gender: form.elements.gender.value,
             lat: latitude,
             lng: longitude,
             user_result: metric,
-            time: null,
-            user_id: null,
-            quiz_id: null
-        })
-    };
+            time: "2019-09-20 09:20:10",
+            user_id: user_id,
+            quiz_id: quiz_id,
+        };
+
+        var request = new XMLHttpRequest();
+        request.open('POST', 'http://localhost:8080/addNewUserAndSurveyData', true);
+        request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+        request.send(JSON.stringify(data));
+    }
+
 
     function answered(response) {
         questionNumber += 1;
